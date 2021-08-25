@@ -16,7 +16,8 @@ class CalculateViewController: UIViewController {
     @IBOutlet weak var twentyPctButton: UIButton!
     @IBOutlet weak var spliNumberLabel: UILabel!
     
-    var selectedTip = 0.0
+    var bill = Bill()
+    
     @IBAction func tipChanged(_ sender: UIButton) {
         //dismiss the keyboard
         billTextField.endEditing(true)
@@ -30,39 +31,42 @@ class CalculateViewController: UIViewController {
         
         if sender.currentTitle! == "0%" {
             //zeroPctButton.isSelected = true
-            
+            bill.tipValue = 0.0
         }else if sender.currentTitle! == "10%" {
-            //tenPctButton.isSelected = true
-            selectedTip = 0.1
-        }else{
-            if sender.currentTitle! == "20%" {
-                //twentyPctButton.isSelected = true
-                selectedTip = 0.2
-            }
+            bill.tipValue = 0.1
+        }else if sender.currentTitle! == "20%" {
+            bill.tipValue = 0.2
+            
         }
         
     }
     
-    var splitNumber = 0.0
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        //converting textfield
         spliNumberLabel.text = String(format: "%.0f", sender.value)
-        splitNumber = sender.value
+        bill.splitNumber = Int(sender.value)
+        
     }
     
-    var bill = 0.0
     @IBAction func calculatePressed(_ sender: UIButton) {
-        
-        bill = Double(billTextField.text ?? "") ?? 0.0
-        
-        
-       let calculate = (bill + (bill * selectedTip)) / splitNumber
-        
-        print(String(format: "%.2f", calculate))
+    
+        bill.billValue = Double(billTextField.text ?? "") ?? 0.0
+
+        //calls result screen
+        self.performSegue(withIdentifier: "goToResult", sender: self)
     }
     
+    // Get the new view controller using segue.destination.
+    // Pass the selected object to the new view controller.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult"{
+            let resultVC = segue.destination as! ResultsViewController
+            resultVC.totalBill = bill.Calculate()
+            resultVC.totalPeople = Int(bill.splitNumber)
+            resultVC.tip = bill.tipValue
+        }
     
-  
-
+    }
 
 }
 

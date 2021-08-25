@@ -205,6 +205,7 @@
                         <outlet property="tenPctButton" destination="Rwu-A9-VfH" id="EhB-aJ-eif"/>
                         <outlet property="twentyPctButton" destination="CKa-YD-tVk" id="M20-VU-niL"/>
                         <outlet property="zeroPctButton" destination="NIj-D2-Uq5" id="hTi-Az-5Wo"/>
+                        <segue destination="Dnf-m2-FPm" kind="presentation" identifier="goToResult" id="wuf-pe-dAe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -216,26 +217,26 @@
             <objects>
                 <viewController id="Dnf-m2-FPm" customClass="ResultsViewController" customModule="Tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E4v-0r-cyo">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T1U-Os-LiC">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aU-5P-VMi">
-                                        <rect key="frame" x="0.0" y="0.0" width="834" height="365.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="704" height="326.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="xro-5q-HAe">
-                                                <rect key="frame" x="0.0" y="0.0" width="834" height="365.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="704" height="326.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total per person" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfb-0w-mI8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="834" height="188"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="704" height="168"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <color key="textColor" red="0.58431372550000005" green="0.60392156860000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="56.32" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cw2-SX-JMK">
-                                                        <rect key="frame" x="0.0" y="168" width="834" height="197.5"/>
+                                                        <rect key="frame" x="0.0" y="148" width="704" height="178.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                                         <color key="textColor" red="0.0" green="0.69019607839999997" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -252,10 +253,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wig-jc-DkM">
-                                        <rect key="frame" x="0.0" y="373.5" width="834" height="365"/>
+                                        <rect key="frame" x="0.0" y="334.5" width="704" height="326.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Split between 2 people, with 10% tip." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5n-yI-QwU">
-                                                <rect key="frame" x="221" y="8" width="392" height="114"/>
+                                                <rect key="frame" x="156" y="8" width="392" height="114"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <color key="textColor" red="0.58431372550000005" green="0.60392156860000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -267,10 +268,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDY-rK-mlV">
-                                        <rect key="frame" x="0.0" y="746.5" width="834" height="365.5"/>
+                                        <rect key="frame" x="0.0" y="669" width="704" height="326.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzV-gt-7rc">
-                                                <rect key="frame" x="330" y="156" width="174" height="54"/>
+                                                <rect key="frame" x="265" y="136.5" width="174" height="54"/>
                                                 <color key="backgroundColor" red="0.0" green="0.69019607839999997" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <state key="normal" title="Recalculate">
