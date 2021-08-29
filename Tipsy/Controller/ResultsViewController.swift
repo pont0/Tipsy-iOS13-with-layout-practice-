@@ -2,7 +2,7 @@
 //  ResultsViewController.swift
 //  Tipsy
 //
-//  Created by Bruna Machado on 22/08/21.
+//  Created by Pablo Lisboa on 22/08/21.
 //  Copyright © 2021 The App Brewery. All rights reserved.
 //
 
@@ -14,6 +14,7 @@ class ResultsViewController: UIViewController {
     var totalPeople = 0
     var tip = 0.0
 
+    // MARK: - IBOutlets
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var settingsLabel: UILabel!
     

@@ -9,15 +9,21 @@
 import UIKit
 
 class CalculateViewController: UIViewController {
-
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var zeroPctButton: UIButton!
     @IBOutlet weak var tenPctButton: UIButton!
     @IBOutlet weak var twentyPctButton: UIButton!
     @IBOutlet weak var spliNumberLabel: UILabel!
     
-    var bill = Bill()
+    // MARK: - Private Properties
     
+    private var bill = Bill()
+    private let kSegueName = "goToResult"
+    
+    // MARK: - IBActions
     @IBAction func tipChanged(_ sender: UIButton) {
         //dismiss the keyboard
         billTextField.endEditing(true)
@@ -29,22 +35,22 @@ class CalculateViewController: UIViewController {
         
         sender.isSelected = true
         
-        if sender.currentTitle! == "0%" {
-            //zeroPctButton.isSelected = true
+        switch sender.currentTitle {
+        case "0%":
             bill.tipValue = 0.0
-        }else if sender.currentTitle! == "10%" {
+        case "10%":
             bill.tipValue = 0.1
-        }else if sender.currentTitle! == "20%" {
+        case "20%":
             bill.tipValue = 0.2
-            
+        default:
+            break
         }
-        
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         //converting textfield
         spliNumberLabel.text = String(format: "%.0f", sender.value)
-        bill.splitNumber = Int(sender.value)
+        bill.splitNumber = sender.value
         
     }
     
@@ -53,15 +59,18 @@ class CalculateViewController: UIViewController {
         bill.billValue = Double(billTextField.text ?? "") ?? 0.0
 
         //calls result screen
-        self.performSegue(withIdentifier: "goToResult", sender: self)
+        self.performSegue(withIdentifier: kSegueName, sender: self)
     }
+    
+    // MARK: - Segueways
     
     // Get the new view controller using segue.destination.
     // Pass the selected object to the new view controller.
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToResult"{
+        if segue.identifier == kSegueName {
             let resultVC = segue.destination as! ResultsViewController
-            resultVC.totalBill = bill.Calculate()
+            resultVC.totalBill = bill.calculate()
             resultVC.totalPeople = Int(bill.splitNumber)
             resultVC.tip = bill.tipValue
         }
